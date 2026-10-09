@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#091124" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PTENit" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>PTENit</title>
+    <meta name="description" content="PTENit & Marketplace - Professional IT Services, Skills Training & Freelance Projects Platform" />
+    <meta property="og:title" content="PTENit" />
+    <meta property="og:description" content="PTENit & Marketplace - Professional IT Services, Skills Training & Freelance Projects Platform" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+      (function() {
+        try {
+          var keys = [
+            'ptenit_database_v2_current_user',
+            'ptenit_database_v2_ptenit_user',
+            'ptenit_database_v2_marketplace_user',
+            'ptenit_current_user',
+            'ptenit_user',
+            'marketplace_user'
+          ];
+          keys.forEach(function(k) {
+            var val = localStorage.getItem(k);
+            if (val) {
+              try {
+                var u = JSON.parse(val);
+                if (!u || u.id === 'acc-1' || u.id === 'acc-2') {
+                  localStorage.removeItem(k);
+                }
+              } catch(e) {
+                localStorage.removeItem(k);
+              }
+            }
+          });
+        } catch(e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DmNAOTAK.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CP8g10g-.css">
+    <style id="facebook-desktop-overrides">
+      /* =========================================================
+         ১. ফেসবুক স্টাইল ৩-কলাম লেআউট ও মধ্য কলামের সাথে দূরত্ব (WIDE GAP)
+         ========================================================= */
+      @media (min-width: 1024px) {
+        /* ৩-কলাম গ্রিড কনটেইনার: ১ম ও ৩য় কলাম ফেসবুক সাইডবার, মধ্য কলামের সাথে পর্যাপ্ত ফাঁকা */
+        .grid.grid-cols-1.lg\:grid-cols-3 {
+          display: grid !important;
+          grid-template-columns: 290px minmax(0, 1fr) 290px !important;
+          gap: 40px !important; /* মধ্য কলাম থেকে স্পষ্ট ফাঁকা */
+          align-items: start !important;
+          max-width: 1540px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          padding-left: 24px !important;
+          padding-right: 24px !important;
+        }
+
+        @media (min-width: 1280px) {
+          .grid.grid-cols-1.lg\:grid-cols-3 {
+            grid-template-columns: 300px minmax(500px, 640px) 300px !important;
+            justify-content: space-between !important;
+            gap: 52px !important; /* আরও উন্মুক্ত ও প্রশস্ত দূরত্ব */
+            padding-left: 32px !important;
+            padding-right: 32px !important;
+          }
+        }
+
+        @media (min-width: 1536px) {
+          .grid.grid-cols-1.lg\:grid-cols-3 {
+            grid-template-columns: 310px minmax(520px, 660px) 310px !important;
+            justify-content: space-between !important;
+            gap: 64px !important; /* বড় মনিটরে চমৎকার ফেসবুক সাইডবার স্পেসিং */
+            padding-left: 44px !important;
+            padding-right: 44px !important;
+          }
+        }
+
+        /* ২য় কলাম (মাঝের ফেসবুক ফিড - মধ্যখানে সুস্পষ্ট ফাঁকা সহ) */
+        #marketplace-column-2,
+        #marketplace-column-2-seller {
+          width: 100% !important;
+          max-width: 640px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        /* =========================================================
+           ২. ১ম ও ৩য় সাইডবার কলামে যেন স্ক্রল না করতে হয় (NO SCROLLING)
+           ========================================================= */
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child,
+        #marketplace-column-3,
+        #marketplace-column-3-seller,
+        #marketplace-column-3-agency {
+          display: block !important;
+          position: sticky !important;
+          top: 68px !important;
+          height: auto !important;
+          max-height: calc(100vh - 72px) !important;
+          overflow-y: hidden !important; /* পিসিতে স্ক্রল করতে হবে না */
+          overflow-x: hidden !important;
+          width: 100% !important;
+          scrollbar-width: none !important; /* স্ক্রলবার সম্পূর্ণরূপে লুকানো */
+          -ms-overflow-style: none !important;
+        }
+
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child::-webkit-scrollbar,
+        #marketplace-column-3::-webkit-scrollbar,
+        #marketplace-column-3-seller::-webkit-scrollbar,
+        #marketplace-column-3-agency::-webkit-scrollbar {
+          display: none !important;
+          width: 0 !important;
+          height: 0 !important;
+        }
+
+        /* সাইডবারের ভেতরের স্পেসিং সুষম ও কমপ্যাক্ট যাতে এক স্ক্রিনেই সম্পূর্ণ ফিট হয় */
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child .space-y-3\.5,
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child .space-y-3,
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child .space-y-2\.5 {
+          gap: 4px !important;
+        }
+
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child button,
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child a,
+        .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child [role="button"] {
+          font-size: 15px !important;
+          line-height: 1.4 !important;
+          padding: 7px 12px !important;
+          margin-bottom: 2px !important;
+          border-radius: 10px !important;
+        }
+
+        #marketplace-column-3 .space-y-4,
+        #marketplace-column-3-seller .space-y-4,
+        #marketplace-column-3-agency .space-y-4,
+        #marketplace-column-3 .space-y-3\.5,
+        #marketplace-column-3-seller .space-y-3\.5 {
+          gap: 6px !important;
+        }
+
+        #marketplace-column-3 > div,
+        #marketplace-column-3-seller > div,
+        #marketplace-column-3-agency > div {
+          padding: 8px 12px !important;
+        }
+      }
+
+      /* সাইডবার মেনু হোভার */
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child button:hover,
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child a:hover,
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child [role="button"]:hover {
+        background-color: #f1f5f9 !important;
+      }
+      .dark .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child button:hover,
+      .dark .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child a:hover,
+      .dark .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child [role="button"]:hover {
+        background-color: #1e293b !important;
+      }
+
+      /* সাইডবার আইকন */
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child svg {
+        width: 20px !important;
+        height: 20px !important;
+        stroke-width: 2 !important;
+      }
+
+      /* সাইডবার সেকশন শিরোনাম */
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child h4,
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child h3,
+      #marketplace-column-3 h4,
+      #marketplace-column-3-agency h4 {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: #64748b !important;
+      }
+      .dark .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child h4,
+      .dark .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child h3,
+      .dark #marketplace-column-3 h4,
+      .dark #marketplace-column-3-agency h4 {
+        color: #94a3b8 !important;
+      }
+
+      /* প্রোফাইল হেডার */
+      .grid.grid-cols-1.lg\:grid-cols-3 > div:first-child h3 {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+      }
+
+      /* =========================================================
+         ৩. সেলার মোডে ৩ নং কলামের নীল ফন্ট গুলা কালো ফন্ট হওয়া
+         ========================================================= */
+      #marketplace-column-3-seller,
+      #marketplace-column-3-seller h1,
+      #marketplace-column-3-seller h2,
+      #marketplace-column-3-seller h3,
+      #marketplace-column-3-seller h4,
+      #marketplace-column-3-seller h5,
+      #marketplace-column-3-seller p,
+      #marketplace-column-3-seller span,
+      #marketplace-column-3-seller strong,
+      #marketplace-column-3-seller a,
+      #marketplace-column-3-seller [class*="text-[#0084FF]"],
+      #marketplace-column-3-seller [class*="text-[#1877F2]"],
+      #marketplace-column-3-seller [class*="text-[#006A4E]"],
+      #marketplace-column-3-seller [class*=text-blue-],
+      #marketplace-column-3-seller [class*=text-sky-],
+      #marketplace-column-3-seller [class*=text-cyan-],
+      #marketplace-column-3-seller [class*=text-indigo-],
+      #marketplace-column-3-seller .text-blue-600,
+      #marketplace-column-3-seller .text-sky-400,
+      #marketplace-column-3-seller .text-sky-500,
+      #marketplace-column-3-seller span.font-mono {
+        color: #0f172a !important; /* নীল ফন্টগুলো কালো করা হলো */
+      }
+
+      .dark #marketplace-column-3-seller,
+      .dark #marketplace-column-3-seller h1,
+      .dark #marketplace-column-3-seller h2,
+      .dark #marketplace-column-3-seller h3,
+      .dark #marketplace-column-3-seller h4,
+      .dark #marketplace-column-3-seller h5,
+      .dark #marketplace-column-3-seller p,
+      .dark #marketplace-column-3-seller span,
+      .dark #marketplace-column-3-seller strong,
+      .dark #marketplace-column-3-seller a,
+      .dark #marketplace-column-3-seller [class*="text-[#0084FF]"],
+      .dark #marketplace-column-3-seller [class*="text-[#1877F2]"],
+      .dark #marketplace-column-3-seller [class*="text-[#006A4E]"],
+      .dark #marketplace-column-3-seller [class*=text-blue-],
+      .dark #marketplace-column-3-seller [class*=text-sky-],
+      .dark #marketplace-column-3-seller [class*=text-cyan-],
+      .dark #marketplace-column-3-seller [class*=text-indigo-],
+      .dark #marketplace-column-3-seller .text-blue-600,
+      .dark #marketplace-column-3-seller .text-sky-400,
+      .dark #marketplace-column-3-seller .text-sky-500,
+      .dark #marketplace-column-3-seller span.font-mono {
+        color: #f8fafc !important;
+      }
+
+      /* =========================================================
+         ৪. প্রগ্রেস বার উজ্জ্বল নীল হওয়া (BLUE PROGRESS BAR)
+         ========================================================= */
+      #marketplace-column-3-seller .h-2 > div,
+      #marketplace-column-3-seller .rounded-full > div[style*="width"],
+      #marketplace-column-3-seller [class*="bg-[#0084FF]"],
+      #marketplace-column-3-seller .bg-slate-900.h-full,
+      #marketplace-column-3-seller .bg-slate-100.h-full {
+        background-color: #0084ff !important;
+        background-image: linear-gradient(90deg, #0084ff, #0073e6) !important;
+      }
+
+      #marketplace-column-3-seller .h-2,
+      #marketplace-column-3-seller .w-full.bg-slate-200 {
+        background-color: #e2e8f0 !important;
+      }
+      .dark #marketplace-column-3-seller .h-2,
+      .dark #marketplace-column-3-seller .w-full.bg-slate-200 {
+        background-color: #334155 !important;
+      }
+
+      /* =========================================================
+         ৫. ফিড ও পোস্ট কার্ড স্টাইল (CLEAN FACEBOOK POSTS & LARGE FONTS)
+         ========================================================= */
+
+      /* ফিড কম্পোজার */
+      #marketplace-column-2 .rounded-full.py-2\.5,
+      #marketplace-column-2-seller .rounded-full.py-2\.5 {
+        font-size: 15px !important;
+        padding: 12px 18px !important;
+      }
+
+      /* পোস্ট কার্ডের ব্যাকগ্রাউন্ড ও স্বাভাবিক নিউট্রাল বর্ডার (কোনো কালার বর্ডার নয়) */
+      #marketplace-column-2 > div[class*="rounded-"],
+      #marketplace-column-2-seller > div[class*="rounded-"],
+      #marketplace-column-2 [class*="rounded-2xl"],
+      #marketplace-column-2-seller [class*="rounded-2xl"],
+      #marketplace-column-2 [class*="rounded-3xl"],
+      #marketplace-column-2-seller [class*="rounded-3xl"] {
+        border-color: #e2e8f0 !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+      }
+
+      .dark #marketplace-column-2 > div[class*="rounded-"],
+      .dark #marketplace-column-2-seller > div[class*="rounded-"],
+      .dark #marketplace-column-2 [class*="rounded-2xl"],
+      .dark #marketplace-column-2-seller [class*="rounded-2xl"],
+      .dark #marketplace-column-2 [class*="rounded-3xl"],
+      .dark #marketplace-column-2-seller [class*="rounded-3xl"] {
+        border-color: #1e293b !important;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3) !important;
+      }
+
+      /* পোস্ট কার্ডে হোভার */
+      #marketplace-column-2 > div[class*="rounded-"]:hover,
+      #marketplace-column-2-seller > div[class*="rounded-"]:hover,
+      #marketplace-column-2 [class*="rounded-2xl"]:hover,
+      #marketplace-column-2-seller [class*="rounded-2xl"]:hover {
+        border-color: #cbd5e1 !important;
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08) !important;
+      }
+      .dark #marketplace-column-2 > div[class*="rounded-"]:hover,
+      .dark #marketplace-column-2-seller > div[class*="rounded-"]:hover,
+      .dark #marketplace-column-2 [class*="rounded-2xl"]:hover,
+      .dark #marketplace-column-2-seller [class*="rounded-2xl"]:hover {
+        border-color: #334155 !important;
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4) !important;
+      }
+
+      /* কোনো রঙিন রিং থাকবে না */
+      #marketplace-column-2 [class*="ring-2"],
+      #marketplace-column-2-seller [class*="ring-2"],
+      #marketplace-column-2 [class*="ring-1"],
+      #marketplace-column-2-seller [class*="ring-1"],
+      #marketplace-column-2 [class*="ring-[#006A4E]"],
+      #marketplace-column-2-seller [class*="ring-[#006A4E]"] {
+        --tw-ring-color: transparent !important;
+        --tw-ring-shadow: none !important;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+      }
+
+      /* সেলার মোডে ব্লু বর্ডার সম্পূর্ণ বাতিল */
+      html.marketplace-seller-mode [class*="border-"],
+      html.marketplace-seller-mode [class*="border-[#00543D]"],
+      html.marketplace-seller-mode [class*="border-[#00543e]"],
+      html.marketplace-seller-mode [class*="border-[#BE123C]"],
+      html.marketplace-seller-mode [class*="border-[#9F1239]"],
+      html.marketplace-seller-mode [class*=border-rose-],
+      html.marketplace-seller-mode [class*=border-green-],
+      html.marketplace-seller-mode [class*=border-emerald-],
+      html.marketplace-seller-mode [class*=border-purple-],
+      html.marketplace-seller-mode [class*=border-violet-] {
+        border-color: #e2e8f0 !important;
+      }
+      .dark html.marketplace-seller-mode [class*="border-"],
+      html.dark.marketplace-seller-mode [class*="border-"] {
+        border-color: #1e293b !important;
+      }
+
+      /* পোস্টের উপরে রঙিন স্ট্রাইপ লুকানো */
+      #marketplace-column-2 .bg-gradient-to-r[class*="from-sky-"],
+      #marketplace-column-2-seller .bg-gradient-to-r[class*="from-sky-"],
+      #marketplace-column-2 .bg-gradient-to-r[class*="from-rose-"],
+      #marketplace-column-2-seller .bg-gradient-to-r[class*="from-rose-"] {
+        display: none !important;
+      }
+
+      /* পোস্ট লেখকের নাম: বুল্ট (font-bold) */
+      #marketplace-column-2 [class*="truncate"].font-semibold,
+      #marketplace-column-2-seller [class*="truncate"].font-semibold,
+      #marketplace-column-2 [class*="truncate"].font-bold,
+      #marketplace-column-2-seller [class*="truncate"].font-bold,
+      #marketplace-column-2 [class*="truncate"].font-black,
+      #marketplace-column-2-seller [class*="truncate"].font-black {
+        font-size: 14px !important;
+        font-weight: 700 !important; /* নামটা বুল্ট */
+        color: #0f172a !important;
+      }
+      .dark #marketplace-column-2 [class*="truncate"].font-semibold,
+      .dark #marketplace-column-2-seller [class*="truncate"].font-semibold,
+      .dark #marketplace-column-2 [class*="truncate"].font-bold,
+      .dark #marketplace-column-2-seller [class*="truncate"].font-bold {
+        color: #f8fafc !important;
+      }
+
+      /* পোস্টের টাইটেল: নামের সমান সাইজ (১৪-১৫ পিক্সেল) কিন্তু কোনো বোল্ড নয় (font-weight: 400) */
+      #marketplace-column-2 [class*="line-clamp-2"],
+      #marketplace-column-2-seller [class*="line-clamp-2"],
+      #marketplace-column-2 h4,
+      #marketplace-column-2-seller h4 {
+        font-size: 14px !important;
+        line-height: 1.45 !important;
+        font-weight: 400 !important; /* টাইটেল বোল্ড নয় */
+        color: #1e293b !important;
+      }
+      .dark #marketplace-column-2 [class*="line-clamp-2"],
+      .dark #marketplace-column-2-seller [class*="line-clamp-2"],
+      .dark #marketplace-column-2 h4,
+      .dark #marketplace-column-2-seller h4 {
+        color: #f1f5f9 !important;
+      }
+
+      /* পিসি ভিউতে (min-width: 1024px) নাম এবং টাইটেল সমান সাইজ (১৫ পিক্সেল), নাম বোল্ড কিন্তু টাইটেল বোল্ড নয় */
+      @media (min-width: 1024px) {
+        #marketplace-column-2 [class*="truncate"].font-semibold,
+        #marketplace-column-2-seller [class*="truncate"].font-semibold,
+        #marketplace-column-2 [class*="truncate"].font-bold,
+        #marketplace-column-2-seller [class*="truncate"].font-bold {
+          font-size: 15px !important;
+          font-weight: 700 !important; /* নামটা বুল্ট */
+        }
+        #marketplace-column-2 [class*="line-clamp-2"],
+        #marketplace-column-2-seller [class*="line-clamp-2"],
+        #marketplace-column-2 h4,
+        #marketplace-column-2-seller h4 {
+          font-size: 15px !important; /* নামের সমান সাইজ */
+          font-weight: 400 !important; /* টাইটেল বোল্ড নয় */
+        }
+      }
+
+      /* ২ Mar, Level 2, Verified ইত্যাদি সব সাব-হেডার ফন্ট সমান সাইজ ও সেইম কালার হালকা কালো */
+      #marketplace-column-2 [class*="whitespace-nowrap"][class*="text-slate-500"] span,
+      #marketplace-column-2-seller [class*="whitespace-nowrap"][class*="text-slate-500"] span,
+      #marketplace-column-2 div.mt-0\.5.whitespace-nowrap span,
+      #marketplace-column-2-seller div.mt-0\.5.whitespace-nowrap span {
+        font-size: 12.5px !important;
+        color: #64748b !important; /* সেইম হালকা কালো */
+        font-weight: 400 !important;
+      }
+      .dark #marketplace-column-2 [class*="whitespace-nowrap"][class*="text-slate-500"] span,
+      .dark #marketplace-column-2-seller [class*="whitespace-nowrap"][class*="text-slate-500"] span,
+      .dark #marketplace-column-2 div.mt-0\.5.whitespace-nowrap span,
+      .dark #marketplace-column-2-seller div.mt-0\.5.whitespace-nowrap span {
+        color: #94a3b8 !important;
+      }
+
+      /* পোস্ট প্রাইস ও বাজেট: নামের সমান সাইজ */
+      #marketplace-column-2 [class*="text-[#006A4E]"][class*="font-bold"],
+      #marketplace-column-2-seller [class*="text-[#006A4E]"][class*="font-bold"],
+      #marketplace-column-2 [class*="text-blue-600"][class*="font-bold"],
+      #marketplace-column-2-seller [class*="text-blue-600"][class*="font-bold"],
+      #marketplace-column-2 [class*="text-[#006A4E]"][class*="font-black"],
+      #marketplace-column-2-seller [class*="text-[#006A4E]"][class*="font-black"] {
+        font-size: 14.5px !important;
+        font-weight: 600 !important;
+      }
+      @media (min-width: 1024px) {
+        #marketplace-column-2 [class*="text-[#006A4E]"][class*="font-bold"],
+        #marketplace-column-2-seller [class*="text-[#006A4E]"][class*="font-bold"],
+        #marketplace-column-2 [class*="text-blue-600"][class*="font-bold"],
+        #marketplace-column-2-seller [class*="text-blue-600"][class*="font-bold"] {
+          font-size: 15px !important;
+        }
+      }
+
+      /* প্রিমিয়াম ও অন্যান্য ব্যাজ: নামের সমান সাইজ */
+      #marketplace-column-2 span[class*="text-[#006A4E]"],
+      #marketplace-column-2-seller span[class*="text-[#006A4E]"],
+      #marketplace-column-2 span[class*="text-blue-600"],
+      #marketplace-column-2-seller span[class*="text-blue-600"] {
+        font-size: 13.5px !important;
+      }
+
+      /* =========================================================
+         ৬. পোস্টের নিচের সেকশন: মধ্য দিয়ে কোনো দাগ নেই ও বাটন বর্ডারহীন (FACEBOOK CLEAN BUTTONS)
+         ========================================================= */
+      /* মাক করা পুরাটার মধ্য দিয়ে বা উপরে কোনো বিভাজক দাগ থাকবে না */
+      #marketplace-column-2 .grid-cols-3,
+      #marketplace-column-2-seller .grid-cols-3,
+      #marketplace-column-2 [class*="grid-cols-3"][class*="border-t"],
+      #marketplace-column-2-seller [class*="grid-cols-3"][class*="border-t"] {
+        border-top: none !important;
+        border-top-width: 0 !important;
+        border-color: transparent !important;
+      }
+
+      /* বাটনগুলোতে কোনো বর্ডার থাকবে না, ফেইসবুকের মত হালকা কালো টেক্সট ও ক্লিন হালকা ব্যাকগ্রাউন্ড */
+      #marketplace-column-2 .grid-cols-3 button,
+      #marketplace-column-2-seller .grid-cols-3 button,
+      #marketplace-column-2 button[title="আপভোট"],
+      #marketplace-column-2-seller button[title="আপভোট"],
+      #marketplace-column-2 button[title="ডাউনভোট"],
+      #marketplace-column-2-seller button[title="ডাউনভোট"] {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        background-color: #f1f5f9 !important;
+        color: #475569 !important; /* ফেইসবুকের মত হালকা কালো */
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        padding: 7px 12px !important;
+        border-radius: 8px !important;
+        transition: background-color 0.15s ease, color 0.15s ease !important;
+      }
+      .dark #marketplace-column-2 .grid-cols-3 button,
+      .dark #marketplace-column-2-seller .grid-cols-3 button,
+      .dark #marketplace-column-2 button[title="আপভোট"],
+      .dark #marketplace-column-2-seller button[title="আপভোট"],
+      .dark #marketplace-column-2 button[title="ডাউনভোট"],
+      .dark #marketplace-column-2-seller button[title="ডাউনভোট"] {
+        background-color: #1e293b !important;
+        color: #94a3b8 !important;
+      }
+      #marketplace-column-2 .grid-cols-3 button:hover,
+      #marketplace-column-2-seller .grid-cols-3 button:hover {
+        background-color: #e2e8f0 !important;
+        color: #1e293b !important;
+      }
+      .dark #marketplace-column-2 .grid-cols-3 button:hover,
+      .dark #marketplace-column-2-seller .grid-cols-3 button:hover {
+        background-color: #334155 !important;
+        color: #f1f5f9 !important;
+      }
+
+      /* বাটনগুলোর ভেতরের আইকন হালকা কালো */
+      #marketplace-column-2 .grid-cols-3 button svg,
+      #marketplace-column-2-seller .grid-cols-3 button svg {
+        color: #64748b !important;
+      }
+      .dark #marketplace-column-2 .grid-cols-3 button svg,
+      .dark #marketplace-column-2-seller .grid-cols-3 button svg {
+        color: #94a3b8 !important;
+      }
+
+      /* ৩য় বাটন (বিস্তারিত): বায়ার মোডে সবুজ (#006A4E), সেলার মোডে নীল (#0084FF) */
+      #marketplace-column-2 .grid-cols-3 button:last-child,
+      #marketplace-column-2 button[title="বিস্তারিত"] {
+        background-color: #006A4E !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        border: none !important;
+      }
+      #marketplace-column-2 .grid-cols-3 button:last-child:hover,
+      #marketplace-column-2 button[title="বিস্তারিত"]:hover {
+        background-color: #00543e !important;
+        color: #ffffff !important;
+      }
+
+      /* সেলার মোডে ৩য় বাটন নীল */
+      #marketplace-column-2-seller .grid-cols-3 button:last-child,
+      #marketplace-column-2-seller button[title="বিস্তারিত"],
+      html.marketplace-seller-mode #marketplace-column-2 .grid-cols-3 button:last-child,
+      html.marketplace-seller-mode #marketplace-column-2 button[title="বিস্তারিত"] {
+        background-color: #0084ff !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        border: none !important;
+      }
+      #marketplace-column-2-seller .grid-cols-3 button:last-child:hover,
+      #marketplace-column-2-seller button[title="বিস্তারিত"]:hover,
+      html.marketplace-seller-mode #marketplace-column-2 .grid-cols-3 button:last-child:hover,
+      html.marketplace-seller-mode #marketplace-column-2 button[title="বিস্তারিত"]:hover {
+        background-color: #0073e6 !important;
+        color: #ffffff !important;
+      }
+
+      /* অযথা ডট জ্বলা-নেভা (blinking/flashing/pulsing) সম্পূর্ণ বন্ধ - স্থির ও শান্ত ডট */
+      .animate-ping,
+      [class*="animate-ping"] {
+        display: none !important;
+      }
+      .animate-pulse,
+      [class*="animate-pulse"] {
+        animation: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC] text-slate-800 antialiased font-sans selection:bg-[#1DB954] selection:text-white">
+    <div id="root"></div>
+  </body>
+</html>
+

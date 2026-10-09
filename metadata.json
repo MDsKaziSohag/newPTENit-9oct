@@ -1,0 +1,11 @@
+{
+  "name": "PTENit",
+  "description": "PTENit \u0026 Marketplace - Professional IT Services, Skills Training \u0026 Freelance Projects Platform",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
